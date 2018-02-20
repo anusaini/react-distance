@@ -24,10 +24,10 @@ class TwoD extends Component {
         let fValue_y = document.getElementById('firstTwoD.y').value
         let sValue_x = document.getElementById('secondTwoD.x').value
         let sValue_y = document.getElementById('secondTwoD.y').value
-        fValue_x = fValue_x > 20000 ? 20000 : fValue_x < 0 ? 0 : fValue_x;
-        fValue_y = fValue_y > 20000 ? 20000 : fValue_y < 0 ? 0 : fValue_y;
-        sValue_x = sValue_x > 20000 ? 20000 : sValue_x < 0 ? 0 : sValue_x;
-        sValue_y = sValue_y > 20000 ? 20000 : sValue_y < 0 ? 0 : sValue_y;
+        fValue_x = fValue_x > 20000 ? 20000 : fValue_x < -20000 ? -20000 : fValue_x;
+        fValue_y = fValue_y > 20000 ? 20000 : fValue_y < -20000 ? -20000 : fValue_y;
+        sValue_x = sValue_x > 20000 ? 20000 : sValue_x < -20000 ? -20000 : sValue_x;
+        sValue_y = sValue_y > 20000 ? 20000 : sValue_y < -20000 ? -20000 : sValue_y;
         const a = new Point2D(fValue_x, fValue_y)
         const b = new Point2D(sValue_x, sValue_y)
         this.setState(prev => ({
@@ -45,13 +45,13 @@ class TwoD extends Component {
                 <h3>Two Dimensional Distance</h3>
                 <div>
                     <label>Distance between</label>
-                    <input type="number" min="0" max="20000" name="firstTwoD.x" id="firstTwoD.x" placeholder="first.x" value={this.state.first.x} onChange={this.submitChange} />
+                    <input type="number" min="-20000" max="20000" name="firstTwoD.x" id="firstTwoD.x" placeholder="first.x" value={this.state.first.x} onChange={this.submitChange} />
                     <label>,</label>
-                    <input type="number" min="0" max="20000" name="firstTwoD.y" id="firstTwoD.y" placeholder="first.y" value={this.state.first.y} onChange={this.submitChange} />
+                    <input type="number" min="-20000" max="20000" name="firstTwoD.y" id="firstTwoD.y" placeholder="first.y" value={this.state.first.y} onChange={this.submitChange} />
                     <label>and</label>
-                    <input type="number" min="0" max="20000" name="secondTwoD.x" id="secondTwoD.x" placeholder="second.x" value={this.state.second.x} onChange={this.submitChange} />
+                    <input type="number" min="-20000" max="20000" name="secondTwoD.x" id="secondTwoD.x" placeholder="second.x" value={this.state.second.x} onChange={this.submitChange} />
                     <label>,</label>
-                    <input type="number" min="0" max="20000" name="secondTwoD.y" id="secondTwoD.y" placeholder="second.y" value={this.state.second.y} onChange={this.submitChange} />
+                    <input type="number" min="-20000" max="20000" name="secondTwoD.y" id="secondTwoD.y" placeholder="second.y" value={this.state.second.y} onChange={this.submitChange} />
                     <label>is</label>
                     {this.state.result}
                 </div>
