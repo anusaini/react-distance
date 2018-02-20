@@ -22,9 +22,8 @@
 .distance .two-d input,
 .distance .two-d label,
 .distance .two-d button {
-    margin: 10px;
-    font-size: 20px;
-    padding: 10px;
+    margin: 5px;
+    padding: 5px;
     background: none;
     border: thin solid teal;
 }
@@ -37,4 +36,8 @@
 .distance .one-d label,
 .distance .two-d label {
     border: none;
+}
+
+input {
+    width: 60px;
 }
