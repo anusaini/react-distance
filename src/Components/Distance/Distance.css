@@ -4,18 +4,24 @@
     text-align: left;
 }
 
-.distance .one-d {
+.distance .one-d,
+.distance .two-d {
     padding: 10px;
 }
 
 .distance .one-d .input,
-.distance .one-d .output {
+.distance .one-d .output,
+.distance .two-d .input,
+.distance .two-d .output {
     margin: 10px;
 }
 
 .distance .one-d input,
 .distance .one-d label,
-.distance .one-d button {
+.distance .one-d button,
+.distance .two-d input,
+.distance .two-d label,
+.distance .two-d button {
     margin: 10px;
     font-size: 20px;
     padding: 10px;
@@ -23,10 +29,12 @@
     border: thin solid teal;
 }
 
-.distance .one-d button {
+.distance .one-d button,
+.distance .two-d button {
     border: medium solid pink;
 }
 
-.distance .one-d label {
+.distance .one-d label,
+.distance .two-d label {
     border: none;
 }
