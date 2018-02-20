@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import CalculateDistance from '../../Library/Distance'
+import Distance from '../../Library/Distance'
 
 class OneD extends Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class OneD extends Component {
         this.setState(prev => ({
             first: fValue,
             second: sValue,
-            result: CalculateDistance(fValue, sValue)
+            result: Distance.Distance1D(fValue, sValue)
         }))
     }
 
