@@ -5,9 +5,9 @@ class OneD extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            first: 0,
-            second: 0,
-            result: 0
+            first: 10,
+            second: 80,
+            result: Distance.Distance1D(10, 80)
         }
         this.submitChange = this.submitChange.bind(this)
     }

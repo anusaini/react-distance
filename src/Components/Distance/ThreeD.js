@@ -2,21 +2,26 @@ import React, {Component} from 'react'
 import Distance from '../../Library/Distance'
 import Point3D from '../../Library/Point3D'
 
+const MIN = -20000
+const MAX = 20000
+
 class ThreeD extends Component {
     constructor(props) {
         super(props)
+        const a = new Point3D(10, 10, 10)
+        const b = new Point3D(80, 80, 80)
         this.state = {
             first: {
-                x: 0,
-                y: 0,
-                z: 0
+                x: 10,
+                y: 10,
+                z: 10
             },
             second: {
-                x: 0,
-                y: 0,
-                z: 0
+                x: 80,
+                y: 80,
+                z: 80
             },
-            result: 0
+            result: Distance.Distance3D(a, b)
         }
         this.submitChange = this.submitChange.bind(this)
     }
@@ -28,12 +33,12 @@ class ThreeD extends Component {
         let sValue_x = document.getElementById('secondThreeD.x').value
         let sValue_y = document.getElementById('secondThreeD.y').value
         let sValue_z = document.getElementById('secondThreeD.z').value
-        fValue_x = fValue_x > 20000 ? 20000 : fValue_x < -20000 ? -20000 : fValue_x;
-        fValue_y = fValue_y > 20000 ? 20000 : fValue_y < -20000 ? -20000 : fValue_y;
-        fValue_z = fValue_z > 20000 ? 20000 : fValue_z < -20000 ? -20000 : fValue_z;
-        sValue_x = sValue_x > 20000 ? 20000 : sValue_x < -20000 ? -20000 : sValue_x;
-        sValue_y = sValue_y > 20000 ? 20000 : sValue_y < -20000 ? -20000 : sValue_y;
-        sValue_z = sValue_z > 20000 ? 20000 : sValue_z < -20000 ? -20000 : sValue_z;
+        fValue_x = fValue_x > MAX ? MAX : fValue_x < MIN ? MIN : fValue_x;
+        fValue_y = fValue_y > MAX ? MAX : fValue_y < MIN ? MIN : fValue_y;
+        fValue_z = fValue_z > MAX ? MAX : fValue_z < MIN ? MIN : fValue_z;
+        sValue_x = sValue_x > MAX ? MAX : sValue_x < MIN ? MIN : sValue_x;
+        sValue_y = sValue_y > MAX ? MAX : sValue_y < MIN ? MIN : sValue_y;
+        sValue_z = sValue_z > MAX ? MAX : sValue_z < MIN ? MIN : sValue_z;
 
         const a = new Point3D(fValue_x, fValue_y, fValue_z)
         const b = new Point3D(sValue_x, sValue_y, sValue_z)
@@ -51,17 +56,17 @@ class ThreeD extends Component {
                 <h3>Three Dimensional Distance</h3>
                 <div>
                     <label>Distance between</label>
-                    <input type="number" min="-20000" max="20000" name="firstThreeD.x" id="firstThreeD.x" placeholder="first.x" value={this.state.first.x} onChange={this.submitChange} />
+                    <input type="number" min={MIN} max={MAX} name="firstThreeD.x" id="firstThreeD.x" placeholder="first.x" value={this.state.first.x} onChange={this.submitChange} />
                     <label>,</label>
-                    <input type="number" min="-20000" max="20000" name="firstThreeD.y" id="firstThreeD.y" placeholder="first.y" value={this.state.first.y} onChange={this.submitChange} />
+                    <input type="number" min={MIN} max={MAX} name="firstThreeD.y" id="firstThreeD.y" placeholder="first.y" value={this.state.first.y} onChange={this.submitChange} />
                     <label>,</label>
-                    <input type="number" min="-20000" max="20000" name="firstThreeD.z" id="firstThreeD.z" placeholder="first.z" value={this.state.first.z} onChange={this.submitChange} />
+                    <input type="number" min={MIN} max={MAX} name="firstThreeD.z" id="firstThreeD.z" placeholder="first.z" value={this.state.first.z} onChange={this.submitChange} />
                     <label>and</label>
-                    <input type="number" min="-20000" max="20000" name="secondThreeD.x" id="secondThreeD.x" placeholder="second.x" value={this.state.second.x} onChange={this.submitChange} />
+                    <input type="number" min={MIN} max={MAX} name="secondThreeD.x" id="secondThreeD.x" placeholder="second.x" value={this.state.second.x} onChange={this.submitChange} />
                     <label>,</label>
-                    <input type="number" min="-20000" max="20000" name="secondThreeD.y" id="secondThreeD.y" placeholder="second.y" value={this.state.second.y} onChange={this.submitChange} />
+                    <input type="number" min={MIN} max={MAX} name="secondThreeD.y" id="secondThreeD.y" placeholder="second.y" value={this.state.second.y} onChange={this.submitChange} />
                     <label>,</label>
-                    <input type="number" min="-20000" max="20000" name="secondThreeD.z" id="secondThreeD.z" placeholder="second.z" value={this.state.second.z} onChange={this.submitChange} />
+                    <input type="number" min={MIN} max={MAX} name="secondThreeD.z" id="secondThreeD.z" placeholder="second.z" value={this.state.second.z} onChange={this.submitChange} />
                     <label>is</label>
                     {this.state.result}
                 </div>
